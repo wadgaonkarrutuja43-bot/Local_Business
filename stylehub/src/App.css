@@ -1,0 +1,539 @@
+/* 1. GLOBAL & RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html, #root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+/* 2. LOGO VIDEO: FULL SCREEN & CENTERED */
+.brand-intro {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #ff5eb1, #ffcf59); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.video-viewport-center {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-mask-image: radial-gradient(circle, black 40%, transparent 85%);
+  mask-image: radial-gradient(circle, black 40%, transparent 85%);
+}
+
+.intro-video-fullscreen {
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply; 
+  filter: contrast(1.1) brightness(1.05);
+}
+
+/* 3. THE WELCOME PAGE */
+.welcome-page {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff5eb1 0%, #ffcf59 100%);
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 4. SHARP NAVIGATION & ACCOUNT SECTION */
+.top-nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 6%;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #ffffff;
+  transform: translateZ(0);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-left: 20px;
+  cursor: pointer;
+  transform: translateZ(0);
+}
+
+.account-wrapper {
+  position: relative;
+}
+
+.account-trigger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+}
+
+.account-trigger:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.user-name {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.cart-badge-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-badge-icon .count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #000;
+  color: #ffcf59;
+  font-size: 0.65rem;
+  font-weight: 900;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 5. ACCOUNT DROPDOWN (Orders, Payments, Wishlist) */
+.account-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 240px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  padding: 10px 0;
+  z-index: 500;
+  transform: translateZ(0);
+}
+
+.dropdown-header {
+  padding: 15px 20px;
+  color: #aaa;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.account-dropdown ul {
+  list-style: none;
+}
+
+.account-dropdown ul li {
+  padding: 15px 20px;
+  color: #111;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.account-dropdown ul li:hover {
+  background: #f9f9f9;
+  color: #ff5eb1;
+  padding-left: 25px;
+}
+
+.account-dropdown .logout {
+  border-top: 1px solid #f0f0f0;
+  color: #ff4b4b;
+}
+
+/* 6. MAIN CONTENT LAYOUT */
+.main-layout {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding: 0 8%;
+  gap: 50px;
+}
+
+.hero-text-side {
+  flex: 1;
+  max-width: 500px;
+  animation: slideUp 1s ease forwards;
+}
+
+.main-heading {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1;
+  margin: 20px 0 40px;
+  transform: translateZ(0);
+}
+
+.tagline {
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-solid {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-weight: 800;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #000;
+  border: 2px solid #000;
+  padding: 15px 35px;
+  font-weight: 800;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/* 7. STOCK DISPLAY */
+.stock-display {
+  flex: 1.5;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: none;
+}
+.stock-display::-webkit-scrollbar { display: none; }
+
+.stock-card {
+  min-width: 260px;
+  height: 380px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: 0.3s;
+}
+
+.stock-card:hover { transform: translateY(-10px); }
+
+.product-img { width: 100%; height: 75%; object-fit: cover; }
+.product-info { padding: 15px; }
+
+.p-name { font-weight: 800; font-size: 1.1rem; }
+.p-price { font-weight: 600; opacity: 0.8; margin-top: 5px; }
+
+/* 8. TICKER & ANIMATIONS */
+.brand-ticker {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #000;
+  padding: 12px 0;
+  white-space: nowrap;
+}
+
+.brand-ticker p {
+  display: inline-block;
+  animation: ticker 20s linear infinite;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ticker {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* 9. MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .main-layout { flex-direction: column; padding-top: 100px; text-align: center; }
+  .stock-display { width: 100vw; padding-left: 8%; }
+  .nav-links { display: none; }
+  .main-heading { font-size: 2.5rem; }
+  .user-name { display: none; } /* Show only cart on mobile to save space */
+}
+
+/* SHOP PAGE OVERRIDES */
+.shop-root {
+  background: #ffffff;
+  color: #000;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll !important; /* Forces scroll to return */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+.product-scroll-area {
+  padding-bottom: 100px; /* Space for the ticker or footer */
+}
+
+/* Fix for the grid images */
+.product-card img {
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.quick-add {
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  transition: bottom 0.3s ease;
+}
+
+.product-card:hover .quick-add {
+  bottom: 0;
+}
+
+.fw-black { font-weight: 900; }
+.tracking-tighter { letter-spacing: -1px; }
+
+/* Desktop Adjustment: Ensure it doesn't look like a mobile app */
+@media (min-width: 992px) {
+  .product-scroll-area {
+    padding: 60px 10%;
+  }
+}
+/* HOME PAGE SPECIFICS */
+.home-hero {
+  height: 80vh;
+  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+}
+
+.category-card {
+  height: 250px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.category-card img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.category-card:hover .category-overlay {
+  background: rgba(0,0,0,0.5);
+}
+
+.category-card:hover img {
+  transform: scale(1.1);
+}
+
+.cursor-pointer { cursor: pointer; }
+
+/* --- PHASE 2 & 3 SYSTEM UPDATES --- */
+
+/* THE SCROLL FIX: This overrides the 'overflow: hidden' on the body 
+   only when we are inside the shop or home pages. */
+.scroll-enabled, 
+.scroll-enabled body {
+  overflow-y: auto !important;
+  height: auto !important;
+  background: #ffffff !important;
+}
+
+/* GLOBAL BRAND STYLING */
+.fw-black { font-weight: 900 !important; }
+.tracking-tighter { letter-spacing: -2px; }
+
+/* SHOP & HOME LAYOUT */
+.home-root, .shop-root, .brands-page {
+  background: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 20px; /* Space for the navigation */
+}
+
+/* HERO SECTION FOR HOME PAGE */
+.home-hero {
+  height: 70vh;
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), 
+              url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0 10%;
+  border-radius: 0 0 40px 40px;
+}
+
+/* PRODUCT GRID STYLING */
+.product-card {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  border-radius: 15px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+/* SEARCH BAR STYLING */
+.form-control:focus {
+  border-color: #000;
+  box-shadow: none;
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 768px) {
+  .home-hero {
+    height: 50vh;
+    padding: 0 5%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+
+
+/* SIMPLE SCROLL OVERRIDE */
+body, html {
+  overflow-y: auto !important; /* Forces vertical scroll over previous hidden rules */
+  background-color: #f8f9fa !important; /* Overrides the #000 default for a cleaner UI */
+  height: auto !important; /* Allows body to grow with content */
+}
+
+.fw-black { font-weight: 900 !important; }
+
+/* Remove default link styles for clean navigation */
+a { 
+  text-decoration: none !important; 
+  color: inherit !important; 
+}
+
+/* Smooth transitions between views */
+.home-container, .container {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Ensure container-based pages display as blocks for scrolling */
+.home-container {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* FORCE SCROLL ON HOME & SHOP */
+#root:has(.home-root), 
+#root:has(.shop-root),
+#root:has(.scroll-enabled) {
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100vh !important;
+}
+
+.home-root {
+  display: block !important;
+  height: auto !important;
+  min-height: 100vh;
+  overflow-y: visible !important;
+  position: relative !important; /* Breaks it out of any fixed positioning */
+}
+
+/* Ensure the body follows suit when these views are active */
+body:has(.home-root) {
+  overflow-y: auto !important;
+  height: auto !important;
+}
