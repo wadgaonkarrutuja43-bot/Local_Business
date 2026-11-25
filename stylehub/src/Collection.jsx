@@ -45,6 +45,7 @@ const Collection = ({ setView }) => {
         </div>
       </section>
 
+
       {/* 3. LOOKBOOK FLOW (Editorial Style) */}
       <section className="container-fluid px-md-5">
         <div className="row g-5">
@@ -92,7 +93,7 @@ const Collection = ({ setView }) => {
                   alt="Fabric Texture"
                 />
               </div>
-            </div>
+            </div> crew.rjvdms_7 014469
           </div>
         </div>
       </section>

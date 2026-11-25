@@ -8,6 +8,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevent Chrome from capturing horizontal touchpad gestures for page navigation */
+html, body, #root, .app-container, .welcome-page, .shop-page {
+  overscroll-behavior-x: contain !important;
+  overscroll-behavior-y: auto;
+  touch-action: pan-y pinch-zoom !important; /* Disables horizontal touch/swipe navigation */
+}
+
 body, html, #root {
   width: 100%;
   height: 100vh;
@@ -366,6 +373,7 @@ body, html, #root {
     padding: 60px 10%;
   }
 }
+
 /* HOME PAGE SPECIFICS */
 .home-hero {
   height: 80vh;
@@ -480,8 +488,6 @@ body, html, #root {
     justify-content: center;
   }
 }
-
-
 
 /* SIMPLE SCROLL OVERRIDE */
 body, html {
